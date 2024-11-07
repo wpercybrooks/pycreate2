@@ -13,8 +13,8 @@ import time
 
 if __name__ == "__main__":
     # Create a Create2 Bot
-    port = '/dev/tty.usbserial-DA01NX3Z'  # this is the serial port on my iMac
-    # port = '/dev/ttyUSB0'  # this is the serial port on my raspberry pi
+    #port = '/dev/tty.usbserial-DA01NX3Z'  # this is the serial port on my iMac
+    port = '/dev/ttyUSB0'  # this is the serial port on my raspberry pi
     baud = {
         'default': 115200,
         'alt': 19200  # shouldn't need this unless you accidentally set it to this
@@ -24,12 +24,12 @@ if __name__ == "__main__":
 
     # define a movement path
     path = [
-        [ 200, 200, 3, 'for'],
-        [-200,-200, 3, 'back'],
+        [ 200, 200, 1, 'for'],
+        [-200,-200, 1, 'back'],
         [   0,   0, 1, 'stop'],
-        [ 100,   0, 2, 'rite'],
-        [   0, 100, 4, 'left'],
-        [ 100,   0, 2, 'rite'],
+        [ 100,   0, 1, 'rite'],
+        [   0, 100, 1, 'left'],
+        [ 100,   0, 1, 'rite'],
         [   0,   0, 1, 'stop']
     ]
 
@@ -44,5 +44,8 @@ if __name__ == "__main__":
         time.sleep(dt)
 
     print('shutting down ... bye')
+
+    bot.seek_dock()
+    time.sleep(5)
     bot.drive_stop()
     time.sleep(0.1)

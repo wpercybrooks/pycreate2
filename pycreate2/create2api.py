@@ -142,8 +142,8 @@ class Create2(object):
         time.sleep(self.sleep_timer)
         self.clearSongMemory()
 
-    # def seek_dock(self):
-    #     self.SCI.write(OPCODES.SEEK_DOCK)
+    def seek_dock(self):
+        self.SCI.write(OPCODES.SEEK_DOCK)
 
     def power(self):
         """
